@@ -23,7 +23,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener{
 
 	//Dimensions
 	public static final int WIDTH = 1400;
-	public static final int HEIGHT = 787;
+	public static final int HEIGHT = 768;
 	
 	public static final int XREZ = 16;
 	public static final int YREZ = 9;

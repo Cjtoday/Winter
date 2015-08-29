@@ -30,8 +30,8 @@ public class TileMap {
 	private String mapLoc;
 	
 	//row and col
-	private int row = 13;
-	private int col = 22;
+	private int row = 25;//13
+	private int col =12;//22
 	
 	private Tile map[][] = new Tile[row][col];
 	
@@ -88,8 +88,8 @@ public class TileMap {
 
 		String mapString = null;
 
-		try {	
-			BufferedReader br = new BufferedReader(new FileReader("bin/Maps/testisomap.txt"));
+		try {		//"bin/Maps/testisomap.txt"
+			BufferedReader br = new BufferedReader(new FileReader("bin/Maps/testisomap2.txt"));
 
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
@@ -113,8 +113,8 @@ public class TileMap {
 		BufferedImage builtMap = new BufferedImage(GameScreen.WIDTH, GameScreen.HEIGHT, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = (Graphics2D) builtMap.getGraphics();
 
-		int x = 0;
-		int y = 0;
+		int x = -64; //0
+		int y = -128;
 
 		boolean even = true;
 		
@@ -125,43 +125,45 @@ public class TileMap {
 		{
 			for(int j = 0; j <= col-1; j++)
 			{
+				
+				//width and height should be 64
 				tile = mapString.charAt(string_Index);
 
 				if (tile == 'a'){
 					map[i][j] = new Tile(tiles[0][0], 0);
-					g.drawImage(tiles[0][0],x,y,64,64,null);
+					g.drawImage(tiles[0][0],x,y,128,128,null);
 				}
 				else if(tile == 'c'){
 					map[i][j] = new Tile(tiles[2][0], 1);
-					g.drawImage(tiles[0][2],x,y,64,64,null);
+					g.drawImage(tiles[0][2],x,y,128,128,null);
 				}
 				else if(tile == 'e'){  
 					map[i][j] = new Tile(tiles[1][1], 2);
-					g.drawImage(tiles[1][1],x,y,64,64,null);
+					g.drawImage(tiles[1][1],x,y,128,128,null);
 				}
 				else if(tile == 'f'){  
 					map[i][j] = new Tile(tiles[2][1], 2);
-					g.drawImage(tiles[1][2],x,y,64,64,null);
+					g.drawImage(tiles[1][2],x,y,128,128,null);
 				}
 				else if(tile == 'j'){  
 					map[i][j] = new Tile(tiles[1][3], 2);
-					g.drawImage(tiles[3][1],x,y,64,64,null);
+					g.drawImage(tiles[3][1],x,y,128,128,null);
 				}
 				else if(tile == 'h'){  
 					map[i][j] = new Tile(tiles[2][1], 2);
-					g.drawImage(tiles[2][1],x,y,64,64,null);
+					g.drawImage(tiles[2][1],x,y,128,128,null);
 				}
 				
-				x += 64;
+				x += 128; //64
 				string_Index++;
 			}
-			y += 16;
+			y += 32; //16
 			if(even){
-				x = 32 ;
+				x = 0; //32
 				even = false;
 			}
 			else if(!even){
-				x = 0;
+				x = -64; //0
 				even = true;
 			}
 			
@@ -170,12 +172,13 @@ public class TileMap {
 	}
 	
 	public void draw2(Graphics2D g){
+		/*
 		for (int i = 0; i < TilesetHeight; i++){
 			for (int j = 0; j < TilesetWidth; j++){
 			//	g.drawImage(tiles[i][j],j*64, i*64, 64, 64, null);
 			}
 			}
-
+*/
 		g.drawImage(mapImage,0,0,mapImage.getWidth(), mapImage.getHeight(),null);
 	}
 	
