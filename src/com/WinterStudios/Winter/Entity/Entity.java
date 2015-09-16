@@ -94,30 +94,6 @@ public abstract class Entity {
 	}
 
 	public boolean checkValidMove(){
-		if(up){
-			if(rowY - 1 < 0 || map.getTile(rowY-1, colX).isBlocked()){
-				up = moving = false;
-				return false;
-			}
-		}
-		else if(down){
-			if(rowY + 1 > map.getHeight()-1 || map.getTile(rowY+1, colX).isBlocked()){	
-				down = moving = false;
-				return false;
-			}
-		}
-		else if(left){
-			if(colX - 1 < 0 || map.getTile(rowY, colX - 1).isBlocked()){
-				left = moving = false;
-				return false;
-			}
-		}
-		else if(right){
-			if(colX + 1 > map.getWidth() || map.getTile(rowY, colX + 1).isBlocked()){
-				right = moving = false;
-				return false;
-			}
-		}
 
 		return true;
 	}
